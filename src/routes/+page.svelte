@@ -105,8 +105,11 @@
         <a href="/font/{key}">
           <div class="bg-orange-300 my-10 p-4 rounded-lg">
             <div>
-              <span class="font-bold text-lg mr-2">{info.name}</span>
-              <span class="mr-4">nasin {info.fonts.length}</span>
+              <span class="font-bold text-lg">{info.name}</span>
+              {info.version}
+              <span class="mx-1">|</span>
+              <span>nasin {info.fonts.length}</span>
+              <span class="mx-4">|</span>
               <span>tan {info.designer}</span>
             </div>
             <TextPreview name={info.fonts[0].name} url={"/families/"+key+"/"+info.fonts[0].filename} ucsur={info.ucsurCodepoints} ascii={info.asciiLigatures} weight={`${info.fonts[0].weight}`} style={info.fonts[0].style.toLowerCase()}>

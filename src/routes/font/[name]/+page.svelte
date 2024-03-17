@@ -7,9 +7,13 @@
 	const font = fonts[data.name as keyof typeof fonts]
 </script>
 
-<div class="flex h-screen">
-	<div class="bg-orange-100 grow">
-	<div class="flex flex-col items-center px-4 h-screen overflow-scroll">
+<svelte:head>
+    <title>{font.name} | tomo sitelen</title> 
+</svelte:head>
+
+<div class="flex">
+	<div class="bg-orange-100 dark:bg-stone-900 dark:text-white grow">
+	<div class="flex flex-col items-center px-4">
 		<div class="max-w-screen-lg w-full mt-16">
 		<h1 class="font-bold text-5xl">{font.name}</h1>
 		<p class="text-xl py-4">kulupu nasin ni li tan {font.designer}</p>
@@ -24,7 +28,7 @@
 		</TextPreview>
 
 
-		<hr class="h-1 mx-auto my-4 bg-orange-200 border-0 rounded md:my-10" />
+		<hr class="h-1 mx-auto my-4 bg-orange-200 dark:bg-stone-500 border-0 rounded md:my-10" />
 		<h2 class="text-3xl font-bold">nasin lukin</h2>
 		{#each font.fonts as {name, weight, style, filename}}
 
@@ -38,13 +42,13 @@
 				jan [sama olin namako jaki ala] li sitelen e pu kepeken wawa mute.
 				</div>
 			</TextPreview>
-			<a class="text-md pt-6 text-orange-600 underline block" href={"/families/"+data.name+"/"+filename} download>o kama jo</a>
+			<a class="text-md pt-6 text-orange-600 dark:text-orange-400 underline block" href={"/families/"+data.name+"/"+filename} download>o kama jo</a>
 		</div>
 
 		{/each}
 
-		<hr class="h-1 mx-auto my-4 bg-orange-200 border-0 rounded md:my-10" />
-		<select bind:value={selectedStyle} class="p-1 rounded-lg bg-orange-300">
+		<hr class="h-1 mx-auto my-4 bg-orange-200 dark:bg-stone-500 border-0 rounded md:my-10" />
+		<select bind:value={selectedStyle} class="p-1 rounded-lg bg-orange-300 dark:bg-stone-700">
 			{#each Object.entries(font.fonts) as [idx, {name}]}
 			<option value={idx}>{name}</option>
 			{/each}

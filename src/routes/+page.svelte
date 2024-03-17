@@ -36,11 +36,15 @@
         .filter(x => !wantsRandom || x[1].randomizedGlyphs)
 </script>
 
+<svelte:head>
+    <title>tomo sitelen</title> 
+</svelte:head>
+
 <div class="flex">
-  <div class="md:h-screen {viewingSidebar ? "" : "max-w-96 h-full sticky top-20"} text-xl bg-orange-200 {viewingSidebar ? "fixed bottom-0 left-0 right-0 pb-16" : "hidden"} md:block p-4 space-y-4">
+  <div class="md:h-screen {viewingSidebar ? "" : "max-w-96 h-full sticky top-20"} text-xl bg-orange-200 dark:bg-stone-950 dark:text-white {viewingSidebar ? "fixed bottom-0 left-0 right-0 pb-16" : "hidden"} md:block p-4 space-y-4">
     <div>
       <div class="font-bold">lipu lawa</div>
-      <select bind:value={selectedLicense} class="p-1 rounded-lg bg-orange-100 w-full">
+      <select bind:value={selectedLicense} class="p-1 rounded-lg bg-orange-100 dark:bg-stone-900 w-full">
         <option value="ale">lipu lawa ale</option>
         {#each licenses as license}
         <option value={license}>
@@ -52,7 +56,7 @@
 
     <div>
       <div class="font-bold">nasin lukin</div>
-      <select bind:value={selectedStyle} class="p-1 rounded-lg bg-orange-100 w-full">
+      <select bind:value={selectedStyle} class="p-1 rounded-lg bg-orange-100 dark:bg-stone-900 w-full">
         <option value="ale">nasin lukin ale</option>
         <option value="LINJA_LUKA">linja luka</option>
         <option value="LINJA_ILO">linja ilo</option>
@@ -98,12 +102,12 @@
 
   <button type="button" class="fixed bottom-3 left-3 z-50 md:hidden bg-orange-400 p-2 rounded-lg" on:click={toggleSidebar}>wile sina</button>
 
-  <div class="bg-orange-100 px-4 grow">
+  <div class="bg-orange-100 dark:bg-stone-900 px-4 grow">
     <div class="flex flex-col items-center">
       <div class="max-w-screen-lg w-full">
         {#each filtered as [key, info]}
         <a href="/font/{key}">
-          <div class="bg-orange-300 my-10 p-4 rounded-lg">
+          <div class="bg-orange-300 dark:bg-stone-800 dark:border-2 dark:border-orange-500 dark:text-white my-10 p-4 rounded-lg">
             <div>
               <span class="font-bold text-lg">{info.name}</span>
               {info.version}

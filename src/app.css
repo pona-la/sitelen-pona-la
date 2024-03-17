@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'linja insa';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+        url('/linjainsa.woff2') format('woff2'),
+        url('/linjainsa.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Adobe NotDef';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+        url('/adobe-notdef.woff2') format('woff2'),
+        url('/adobe-notdef.woff') format('woff'),
+        url('/adobe-notdef.ttf') format('truetype');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

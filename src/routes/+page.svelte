@@ -109,7 +109,7 @@
               <span class="mr-4">nasin {info.fonts.length}</span>
               <span>tan {info.designer}</span>
             </div>
-            <TextPreview name={info.fonts[0].name} url={"/families/"+key+"/"+info.fonts[0].filename} ucsur={info.ucsurCodepoints} ascii={info.asciiLigatures}>
+            <TextPreview name={info.fonts[0].name} url={"/families/"+key+"/"+info.fonts[0].filename} ucsur={info.ucsurCodepoints} ascii={info.asciiLigatures} weight={`${info.fonts[0].weight}`} style={info.fonts[0].style.toLowerCase()}>
               <div slot="ucsur">
                 󱤑󱦐󱥖󱥅󱥸󱤐󱤂󱦑󱤧󱥠󱤉󱥕󱤙󱥵󱤼󱦜
               </div>

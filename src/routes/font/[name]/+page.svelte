@@ -14,7 +14,7 @@
 		<h1 class="font-bold text-5xl">{font.name}</h1>
 		<p class="text-xl py-4">kulupu nasin ni li tan {font.designer}</p>
 
-		<TextPreview name={font.fonts[0].name} url={"/families/"+data.name+"/"+font.fonts[0].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+		<TextPreview name={font.fonts[0].name} url={"/families/"+data.name+"/"+font.fonts[0].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={`${font.fonts[0].weight}`} style={font.fonts[0].style.toLowerCase()}>
 			<div slot="ucsur" class="text-7xl text-center py-8">
 			󱤑󱦐󱥖󱥅󱥸󱤐󱤂󱦑󱤧󱥠󱤉󱥕󱤙󱥵󱤼󱦜
 			</div>
@@ -26,11 +26,11 @@
 
 		<hr class="h-1 mx-auto my-4 bg-orange-200 border-0 rounded md:my-10" />
 		<h2 class="text-3xl font-bold">nasin lukin</h2>
-		{#each font.fonts as {name, weight, filename}}
+		{#each font.fonts as {name, weight, style, filename}}
 
 		<div class="py-6">
 			<h3 class="text-lg">{name} {weight}</h3>
-			<TextPreview name={name} url={"/families/"+data.name+"/"+filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={name} url={"/families/"+data.name+"/"+filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={weight.toString()} style={style.toLowerCase()}>
 				<div slot="ucsur" class="text-6xl">
 				󱤑󱦐󱥖󱥅󱥸󱤐󱤂󱦑󱤧󱥠󱤉󱥕󱤙󱥵󱤼󱦜
 				</div>
@@ -52,7 +52,7 @@
 
 		<div class="py-4">
 			<h3 class="text-lg">{font.fonts[selectedStyle].name} {font.fonts[selectedStyle].weight} lon suli 48px</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[48px]">
 				󱤑󱦐󱥖󱥅󱥸󱤐󱤂󱦑󱤧󱥠󱤉󱥕󱤙󱥵󱤼󱦜
 				</div>
@@ -64,7 +64,7 @@
 
 		<div class="py-4">
 			<h3 class="text-lg">{font.fonts[selectedStyle].name} {font.fonts[selectedStyle].weight} lon suli 36px</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[36px]">
 				󱤑󱦐󱥖󱥅󱥸󱤐󱤂󱦑󱤧󱥠󱤉󱥕󱤙󱥵󱤼󱦜
 				</div>
@@ -76,7 +76,7 @@
 
 		<div class="py-4">
 			<h3 class="text-lg">{font.fonts[selectedStyle].name} {font.fonts[selectedStyle].weight} lon suli 32px</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[32px]">
 				󱤑󱦐󱥖󱥅󱥸󱤐󱤂󱦑󱤧󱥠󱤉󱥕󱤙󱥵󱤼󱦜
 				</div>
@@ -88,7 +88,7 @@
 
 		<div class="py-4">
 			<h3 class="text-lg">{font.fonts[selectedStyle].name} {font.fonts[selectedStyle].weight} lon suli 22px</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[22px]">
 				󱤑󱦐󱥖󱥅󱥸󱤐󱤂󱦑󱤧󱥠󱤉󱥕󱤙󱥵󱤼󱦜
 				</div>
@@ -100,7 +100,7 @@
 
 		<div class="py-4">
 			<h3 class="text-lg">{font.fonts[selectedStyle].name} {font.fonts[selectedStyle].weight} lon suli 16px</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[16px]">
 				󱤑󱦐󱥖󱥅󱥸󱤐󱤂󱦑󱤧󱥠󱤉󱥕󱤙󱥵󱤼󱦜
 				</div>
@@ -114,7 +114,7 @@
 
 		<div class="py-4">
 			<h3 class="text-xl">nimi pu ale</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[0.5in]">
 				󱤀󱤁󱤂󱤃󱤄󱤅󱤆󱤇󱤈<br/>
 				󱤉󱤊󱤋<br/>
@@ -152,7 +152,7 @@
 
 		<div class="py-4">
 			<h3 class="text-xl">nimi ku suli</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[0.5in]">
 				󱥹󱥺󱥻󱥼󱥽󱥾󱥿󱦀󱦁󱦂󱦃󱦄󱦅󱦆󱦇󱦈
 				</div>
@@ -164,7 +164,7 @@
 
 		<div class="py-4">
 			<h3 class="text-xl">nimi ku lili</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[0.5in]">
 				󱦠󱦡󱦢󱦣
 				</div>
@@ -176,7 +176,7 @@
 
 		<div class="py-4">
 			<h3 class="text-xl">sitelen ante</h3>
-			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures}>
+			<TextPreview name={font.fonts[selectedStyle].name} url={"/families/"+data.name+"/"+font.fonts[selectedStyle].filename} ucsur={font.ucsurCodepoints} ascii={font.asciiLigatures} weight={font.fonts[selectedStyle].weight.toString()} style={font.fonts[selectedStyle].style.toLowerCase()}>
 				<div slot="ucsur" class="text-[0.5in]">
 				、「」︑﹁﹂󱦐󱦑󱦜 󱦝
 				</div>

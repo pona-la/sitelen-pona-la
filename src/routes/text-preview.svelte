@@ -5,6 +5,8 @@
 	export let url: string;
 	export let ucsur: boolean;
 	export let ascii: boolean;
+	export let weight: string;
+	export let style: string;
 
 	let el: Element
 	let font: Promise<FontFace>
@@ -15,12 +17,29 @@
 					if (entry.isIntersecting) {
 						const face = new FontFace(
 							`"${name}"`,
-							`url("${url}")`
+							`url("${window.location.protocol}//${window.location.host}${url}")`,
+							{
+								weight: weight,
+								style: style
+							}
 						)
-						font = face.load()
-						if (!document.fonts.has(face)) {
-							document.fonts.add(face)
-						}
+
+						font = face.load().then(loadedFace => {
+							if (!document.fonts.has(loadedFace)) {
+								document.fonts.add(loadedFace)
+							}
+							if(navigator.userAgent.indexOf('AppleWebKit') != -1){
+								document.styleSheets[0].insertRule(`
+									@font-face {
+										font-family: "${name}";
+										font-style: ${style};
+										font-weight: ${style};
+										src: url("${window.location.protocol}//${window.location.host}${url}");
+									}
+								`)
+							}
+							return loadedFace
+						})
 					}
 				})
 			})
@@ -36,11 +55,11 @@
 	{:then}
 		<div>
 			{#if ucsur}
-			<div class="text-5xl" style:font-family={`"${name}", "Adobe NotDef"`}>
+			<div class="text-5xl" style:font-family={`"${name}", "Adobe NotDef"`} style:font-weight={weight} style:font-style={style}>
 				<slot name="ucsur" />
 			</div>
 			{:else if ascii}
-			<div class="text-5xl" style:font-family={`"${name}", "Adobe NotDef"`}>
+			<div class="text-5xl" style:font-family={`"${name}", "Adobe NotDef"`} style:font-weight={weight} style:font-style={style}>
 				<slot name="latin" />
 			</div>
 			{:else}
@@ -54,6 +73,8 @@
 	<span class="text-2xl">
 		󱥈󱤀
 		nasin sitelen ni li pakala. ona li pona ala tawa ilo sina. o toki e ni tawa tan ona.
+
+		{err}
 	</span>
 	{/await}
 	</div>

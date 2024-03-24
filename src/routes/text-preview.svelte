@@ -16,7 +16,7 @@
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
 						const face = new FontFace(
-							`"${name}"`,
+							`${name}`,
 							`url("${window.location.protocol}//${window.location.host}${url}")`,
 							{
 								weight: weight,
@@ -27,16 +27,6 @@
 						font = face.load().then(loadedFace => {
 							if (!document.fonts.has(loadedFace)) {
 								document.fonts.add(loadedFace)
-							}
-							if(navigator.userAgent.indexOf('AppleWebKit') != -1){
-								document.styleSheets[0].insertRule(`
-									@font-face {
-										font-family: "${name}";
-										font-style: ${style};
-										font-weight: ${style};
-										src: url("${window.location.protocol}//${window.location.host}${url}");
-									}
-								`)
 							}
 							return loadedFace
 						})

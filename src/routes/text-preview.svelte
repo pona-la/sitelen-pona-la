@@ -9,7 +9,7 @@
 	export let style: string;
 
 	let el: Element
-	let font: Promise<FontFace>
+	let font: Promise<any>
 	if (typeof window !== 'undefined') {
 		onMount(() => {
 			const observer = new IntersectionObserver((entries, observer) => {
@@ -25,10 +25,8 @@
 						)
 
 						font = face.load().then(loadedFace => {
-							if (!document.fonts.has(loadedFace)) {
-								document.fonts.add(loadedFace)
-							}
-							return loadedFace
+							document.fonts.add(loadedFace)
+							return document.fonts.load(name)
 						})
 					}
 				})

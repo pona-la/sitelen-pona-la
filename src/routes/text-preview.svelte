@@ -45,11 +45,11 @@
 	{:then}
 		<div>
 			{#if ucsur}
-			<div class="text-5xl" style:font-family={`"${name}", "Adobe NotDef"`} style:font-weight={weight} style:font-style={style}>
+			<div class="text-5xl" style:font-family={[name, "Adobe NotDef"]} style:font-weight={weight} style:font-style={style}>
 				<slot name="ucsur" />
 			</div>
 			{:else if ascii}
-			<div class="text-5xl" style:font-family={`"${name}", "Adobe NotDef"`} style:font-weight={weight} style:font-style={style}>
+			<div class="text-5xl" style:font-family={[name, "Adobe NotDef"]} style:font-weight={weight} style:font-style={style}>
 				<slot name="latin" />
 			</div>
 			{:else}

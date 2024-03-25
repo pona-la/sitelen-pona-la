@@ -26,7 +26,7 @@
 
 						font = face.load().then(loadedFace => {
 							document.fonts.add(loadedFace)
-							return document.fonts.load(name)
+							return document.fonts.load(`16px ${name}`)
 						})
 					}
 				})

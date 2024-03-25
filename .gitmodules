@@ -1,0 +1,3 @@
+[submodule "poki-pi-tomo-sitelen"]
+	path = poki-pi-tomo-sitelen
+	url = https://github.com/pona-la/poki-pi-tomo-sitelen-pona.git
